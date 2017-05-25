@@ -8,7 +8,7 @@ public class CameraFollowPlayer : MonoBehaviour {
 	Transform player {
 		get {
 			if (_player == null)
-				_player = FindObjectOfType<PlayerMovement> ().transform;
+				_player = FindObjectOfType<Player> ().transform;
 			return _player;
 		}
 	}

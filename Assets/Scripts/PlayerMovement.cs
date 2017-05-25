@@ -12,10 +12,11 @@ public class PlayerMovement : MonoBehaviour {
 		public string horizontalAxis;
 		[SerializeField]
 		public string verticalAxis;
-		[SerializeField]
-		public KeyCode aimButton;
+		//[SerializeField]
+		//public KeyCode aimButton;
 	}
 
+	// make sure player has a rigidbody, and attach it to them
 	Rigidbody _playerRigidbody;
 	Rigidbody playerRigidbody {
 		get {
@@ -27,8 +28,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Controls playerControls;
 
-	public float _speed = 5f;
-	public float speed {
+	public float speed = 5f;
+	/*public float speed {
 		get {
 			if (Input.GetKey(playerControls.aimButton))
 				return _speed / 2;
@@ -38,13 +39,13 @@ public class PlayerMovement : MonoBehaviour {
 		set {
 			_speed = value;
 		}
-	}
+	}*/
 	
 	// Update is called once per frame
 	void Update () {
 		Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 		Move (direction);
-		Aim ();
+		// Aim ();
 	}
 
 	void Move(Vector2 movement) {
@@ -52,11 +53,11 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log (movement);
 	}
 
-	void Aim() {
+	/*void Aim() {
 		Vector3 mouseScreenPosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y);
 		Debug.Log (mouseScreenPosition);
 		Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 		transform.LookAt (new Vector3(mouseWorldPosition.x, transform.position.y, mouseWorldPosition.z));
-	}
+	}*/
 
 }
